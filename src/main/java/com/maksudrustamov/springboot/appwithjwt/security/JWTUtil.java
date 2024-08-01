@@ -54,6 +54,5 @@ public class JWTUtil {
         DecodedJWT jwt = jwtVerifier.verify(token);
 
         return jwt.getClaim("username").asString(); // через jwt мы получаем юзера(payload)
-
     }
 }

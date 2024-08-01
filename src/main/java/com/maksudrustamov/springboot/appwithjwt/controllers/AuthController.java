@@ -37,19 +37,6 @@ public class AuthController {
         this.authenticationManager = authenticationManager;
     }
 
-//    @GetMapping("/login")
-//    public String loginPage(){
-//        return "auth/login";
-//    }
-//
-//    @GetMapping("/registration")
-//    public String registrationPage(@ModelAttribute("person")Person person){ // в модель положит пустого человека для фронта
-//        return "auth/registration";
-//    }
-
-
-
-
     @PostMapping("/registration")
     public Map<String,String> performRegistration(@RequestBody @Valid PersonDTO personDTO, BindingResult bindingResult) {
 
@@ -73,7 +60,7 @@ public class AuthController {
     @PostMapping("/login")
     public Map<String,String> performLogin(@RequestBody AuthenticationDTO authenticationDTO){
 
-        // стандартный класс для енкапсуляции логина и пароля
+        // стандартный класс для инкапсуляции логина и пароля
         UsernamePasswordAuthenticationToken authInputToken = new UsernamePasswordAuthenticationToken(
                 authenticationDTO.getUsername(),
                 authenticationDTO.getPassword());
@@ -98,3 +85,14 @@ public class AuthController {
         return this.modelMapper.map(personDTO, Person.class);
     }
 }
+
+
+//    @GetMapping("/login")
+//    public String loginPage(){
+//        return "auth/login";
+//    }
+//
+//    @GetMapping("/registration")
+//    public String registrationPage(@ModelAttribute("person")Person person){ // в модель положит пустого человека для фронта
+//        return "auth/registration";
+//    }
